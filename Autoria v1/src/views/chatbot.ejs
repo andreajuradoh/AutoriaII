@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Panel de opciones</title>
+    <% include partials/head %>
+<style>
+body {
+  margin: 0 auto;
+  max-width: 800px;
+  padding: 0 20px;
+}
+
+.container {
+  border: 2px solid #dedede;
+  background-color: #3d4cad;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+  color: white;
+}
+
+.darker {
+  border-color: #ccc;
+  background-color: #4c5592;
+}
+
+.container::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.container img {
+  float: left;
+  max-width: 60px;
+  width: 100%;
+  margin-right: 20px;
+  border-radius: 50%;
+}
+
+.container img.right {
+  float: right;
+  margin-left: 20px;
+  margin-right:0;
+}
+
+.time-right {
+  float: right;
+  color: #aaa;
+}
+
+.time-left {
+  float: left;
+  color: rgb(101, 110, 138);
+}
+</style>
+</head>
+<body>
+            <br><br>
+            <header class="text-right">
+                    <a href="/logout" class="bton btn-light btn-sm">Cerrar sesión</a>
+            </header>
+<br> <br> <br>
+<h3 class="text-center">CHAT </h3>
+<br>
+<div class="container">
+        <img src="http://www.toft.ch/pictures/bandmember.jpg" alt="Avatar" style="width:100%;">
+        <p>Hola, en qué podemos ayudarte?</p>
+        <span class="time-right">11:00</span>
+      </div>
+
+<div class="container darker">
+  <img src="https://www.w3schools.com/w3images/underwater.jpg" alt="Avatar" class="right" style="width:100%;">
+  <p>Hola, podría ayudarme con algo?</p>
+  <span class="time-left">11:01</span>
+</div>
+<div class="container">
+        <img src="http://www.toft.ch/pictures/bandmember.jpg" alt="Avatar" style="width:100%;">
+        <p>Claro, adelante!</p>
+        <span class="time-right">11:00</span>
+      </div>
+      <div class="container darker">
+            <img src="https://www.w3schools.com/w3images/underwater.jpg" alt="Avatar" class="right" style="width:100%;">
+            <p>Genial! Tengo una duda sobre un producto que compré</p>
+            <span class="time-left">11:01</span>
+          </div>
+<div class="container">
+  <img src="http://www.toft.ch/pictures/bandmember.jpg" alt="Avatar" style="width:100%;">
+  <p>Ok, envíeme su código de producto que viene en la factura emitida en la compra</p>
+  <span class="time-right">11:02</span>
+</div>
+
+<div class="container darker">
+  <img src="https://www.w3schools.com/w3images/underwater.jpg" alt="Avatar" style="width:100%;">
+  <p>Perdí mi factura pero tengo la cajita del producto</p>
+  <span class="time-left">11:05</span>
+</div>
+</body>
+</html>
