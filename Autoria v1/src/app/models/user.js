@@ -2,27 +2,11 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt-nodejs');
 
 const userSchema = new mongoose.Schema({
-    local: {
+  local: {
+    username: String,
     email: String,
-    password: String
-  },
-  facebook: {
-    id: String,
-    token: String,
-    email: String,
-    password: String
-  },
-  twitter: {
-    id: String,
-    token: String,
-    email: String,
-    password: String
-  },
-  google: {
-    id: String,
-    token: String,
-    email: String,
-    password: String
+    password: String,
+    role: { type: String, enum: ['user', 'admin'], default: 'user' }
   }
 });
 

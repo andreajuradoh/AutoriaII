@@ -13,10 +13,14 @@ module.exports = (app, passport) => {
     });
 
     app.post('/login',passport.authenticate('local-login', {	
-        successRedirect: '/profile',
-		failureRedirect: '/login',
-		failureFlash: true
-    }));
+      successRedirect: '/profile',
+      failureRedirect: '/login',
+      failureFlash: true
+    }))
+    if (role='user') {
+      console.log('rol usuario');
+      //agregar redireccionamiento del admin
+    };
 
     // signup view
     app.get('/signup', (req,res) => {
@@ -26,31 +30,32 @@ module.exports = (app, passport) => {
     });
 
     app.post('/signup', passport.authenticate('local-signup', {
-		successRedirect: '/profile',
-		failureRedirect: '/signup',
-		failureFlash: true // allow flash messages
+      successRedirect: '/login',
+      failureRedirect: '/signup',
+      failureFlash: true // allow flash messages
     }));
     
     //profile view
 	app.get('/profile', isLoggedIn, (req, res) => {
 		res.render('profile', {
-			user: req.user
+      user: req.user,
+      role: req.role
 		});
-    });
+  });
     
     //generate ticket
-    app.get('/ticket', isLoggedIn, (req, res) => {
+  app.get('/ticket', isLoggedIn, (req, res) => {
 		res.render('ticket', {
 			user: req.user
 		});
-    });
+  });
 
     //chatbot
-    app.get('/chatbot', isLoggedIn, (req, res) => {
+  app.get('/chatbot', isLoggedIn, (req, res) => {
 		res.render('chatbot', {
 			user: req.user
 		});
-    });
+  });
 
 	// logout
 	app.get('/logout', (req, res) => {
@@ -61,8 +66,7 @@ module.exports = (app, passport) => {
 
 function isLoggedIn (req, res, next) {
 	if (req.isAuthenticated()) {
-		return next();
+    return next();
 	}
-
 	res.redirect('/');
 }
